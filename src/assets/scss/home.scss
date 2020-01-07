@@ -1,11 +1,13 @@
 @import "style";
 
-.main {
-  grid-row: 2/3;
+.main_h {
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 5fr 7fr 5fr 1fr;
   grid-template-rows: 150px 1fr 50px;
+  @media only screen and (max-width: 675px){
+    display: block;
+  }
 
   .input-search {
     display: grid;
@@ -41,75 +43,50 @@
     grid-row: 2/3;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 150px 1fr;
+    grid-template-rows: 250px 100px 1fr;
     background: url(../../assets/img/fon-winter.png) center no-repeat;
     background-size: cover;
     @extend %style-box-wrap;
+    @media only screen and (max-width: 455px){
+      display: block;
+    }
 
     .frame-items-day {
       grid-column: 1/2;
-      grid-row: 1/3;
-      display: grid;
+      grid-row: 1/2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
       align-items: center;
-      justify-items: center;
       margin: 10px 10px 50px;
       background-size: cover;
-      background: #fff url(../../assets/img/items-1.jpg) no-repeat center;
-      background-clip: content-box;
+      background: cornsilk;
       border-radius: 10px;
       border: 1px solid #535050;
       box-shadow: $box-shadow-frame-items;
-      grid-template-rows: 3fr;
-
+      padding: 10px;
 
     .now_weather {
-      grid-row: 3/4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      @extend %style-text-ibarra_italic_shadow;
-      color: #64c6ff;
-      font-size: 70px;
+
+     text-align: center;
+
+      color:#08204d;
+      font-size: 24px;
     }
 
     .now_city {
-      grid-row: 1/2;
-      width: 180px;
+
       text-align: center;
-      justify-content: center;
-      color: rgb(230, 227, 227);
-      font-size: 34px;
+      color: #08204d;
+      font-size: 24px;
     }
 
     .now_desc {
-      grid-row: 2/3;
-      width: 180px;
       text-align: center;
-      justify-content: center;
-      background-color: rgba(255, 255, 255, 0.4);
-      border-radius: 5px;
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      @extend %style-text-open_italic_shadow;
-      color: rgb(230, 227, 227);
+      color:#08204d;
       font-size: 24px;
     }
   }
-
-    .now_time {
-     grid-column: 2/5;
-      grid-row: 2/3;
-      width: 380px;
-      height: 60px;
-      background-color: rgba(200, 240, 245, 0.5);
-      border-radius: 20px;
-      box-shadow: $box-shadow-frame-items;
-      justify-self: center;
-      text-align: center;
-      @extend %style-text-ibarra_italic_shadow;
-      color: #43138f;
-      font-size: 40px;
-      font-weight: 400;
-    }
 
     .frame-items-add {
       grid-column: 5/6;
@@ -123,7 +100,7 @@
         border-radius: 10px;
         box-shadow: $box-shadow-component;
         transition-duration: 0.2s;
-        margin-top: 50px;
+        margin: 50px;
         width: 200px;
         align-items: center;
         justify-content: space-evenly;

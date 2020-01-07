@@ -1,5 +1,5 @@
 
-<div class="main">
+<div class="main_h">
 
   <app-alert
     [message]="error"
@@ -78,23 +78,18 @@
     <div class="frame-items-day">
 
       <div class="now_city">
-        <span class="tip">{{weatherItem.cityName | uppercase}}</span>
+        <span >{{weatherItem.cityName | uppercase}}</span>
       </div>
 
       <div class="now_weather">
-        <span class="unit unit_temperature_c">{{weatherItem.tempMin}}</span>
-        <span class="unit unit_temperature_f">35,6</span>
+        <span >{{weatherItem.tempMin}}</span>
       </div>
 
       <div class="now_desc">
-        <span class="tip">{{weatherItem.description}}</span>
+        <span >{{weatherItem.description}}</span>
       </div>
 
     </div>
-
-      <div class="now_time">
-        <time data-dateformat="D, j F, G:i">{{weatherDays[0].dayOfTheWeek}}</time>
-      </div>
 
       <div class="frame-items-add">
         <button

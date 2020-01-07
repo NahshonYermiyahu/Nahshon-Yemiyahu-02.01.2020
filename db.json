@@ -34,34 +34,6 @@
       "tempMax": 11.1,
       "description": "Showers",
       "id": 9
-    },
-    {
-      "cityName": "london",
-      "tempMin": 10.6,
-      "tempMax": 12.2,
-      "description": "Mostly cloudy w/ showers",
-      "id": 10
-    },
-    {
-      "cityName": "tel aviv",
-      "tempMin": 9.5,
-      "tempMax": 17.4,
-      "description": "Partly sunny",
-      "id": 11
-    },
-    {
-      "cityName": "Paris",
-      "tempMin": 8.9,
-      "tempMax": 11.1,
-      "description": "Showers",
-      "id": 12
-    },
-    {
-      "cityName": "london",
-      "tempMin": 10.6,
-      "tempMax": 12.2,
-      "description": "Mostly cloudy w/ showers",
-      "id": 14
     }
   ]
 }

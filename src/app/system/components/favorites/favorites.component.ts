@@ -22,22 +22,8 @@ export class FavoritesComponent implements OnInit {
     })
   }
 
-  // addWeatherItem(weatherItem: WeatherItemModel) {
-  //   this.dataService.addWeatherItem(weatherItem).subscribe(data => {
-  //     this.weatherItems.push(data);
-  //   })
-  // }
-
-  deleteWeatherItem(weatherItem: WeatherItemModel) {
-    this.dataService.deleteWeatherItem(weatherItem).subscribe(data => {
-      this.weatherItems = this.weatherItems.filter(c => c.id != weatherItem.id);
-      console.log(this.weatherItems);
-    })
-  }
-
   details(weatherItem: WeatherItemModel) {
     let data = weatherItem;
-    console.log(data);
     this.router.navigate(['home', data])
 
   }

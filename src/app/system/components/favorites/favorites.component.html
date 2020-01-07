@@ -1,13 +1,12 @@
-<div class="main">
-  <div class="main_f">
-    <div *ngFor="let weatherItem of weatherItems">
-        <div class="block" (click)="details(weatherItem)">
-          <span>{{weatherItem.cityName}}</span>
-          <span>{{weatherItem.id}}</span>
-          <span>{{weatherItem.description}}</span>
-          <span>{{weatherItem.tempMax}}</span>
-          <span>{{weatherItem.tempMin}}</span>
-        </div>
-    </div>
+
+<div class="main_f">
+  <div *ngFor="let weatherItem of weatherItems">
+      <div class="block" (click)="details(weatherItem)">
+        <span>{{weatherItem.cityName}}</span>
+        <span>{{weatherItem.id}}</span>
+        <span>{{weatherItem.description}}</span>
+        <span>{{weatherItem.tempMax}}</span>
+        <span>{{weatherItem.tempMin}}</span>
+      </div>
   </div>
 </div>

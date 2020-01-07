@@ -16,15 +16,14 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  // weatherItem = new WeatherItemModel ('', 0, 0, '');
-  weatherItem: WeatherItemModel;
+  weatherItem = new WeatherItemModel ('', 0, 0, '');
+  // weatherItem: WeatherItemModel;
   weatherDays: WeatherDay[] = [];
   error: string = null;
   // @ts-ignore
   @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
   private closeSub: Subscription;
   isLoading = false;
-  isLoginMode = true;
 
   constructor(private weatherService: WeatherService,
               private componentFactoryResolver: ComponentFactoryResolver,
@@ -35,18 +34,17 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isLoading = true;
-    // this.getIdCity('Tel Aviv');
+     this.getIdCity('Tel Aviv',1);
     this.activatedRoute.params
       .subscribe(data => {
         this.getIdCity(data.cityName, data.id);
+
+        console.log(data.cityName)
         this.router.navigate(['home'], {queryParams: {}});
         this.isLoading = false;
       });
   }
 
-  onSwitchMode() {
-    this.isLoginMode = !this.isLoginMode;
-  }
 
   getIdCity(cityName: string, id: number) {
     this.isLoading = true;
@@ -71,7 +69,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.weatherService.searchWeatherData(idCity)
       .subscribe(data => {
-        console.log(data);
       this.weatherItem = new WeatherItemModel(
         cityName,
         data.DailyForecasts[0].Temperature.Minimum.Value,
@@ -79,7 +76,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         data.DailyForecasts[0].Day.IconPhrase,
         id
       );
-        console.log(this.weatherItem);
+
       for(let i = 0; i < data.DailyForecasts.length; i++) {
         let weatherDay = new WeatherDay(
           HomeComponent.getWeekDay(new Date(Date.parse(data.DailyForecasts[i].Date))),
@@ -87,9 +84,8 @@ export class HomeComponent implements OnInit, OnDestroy {
           data.DailyForecasts[i].Temperature.Minimum.Value
         );
         this.weatherDays.push(weatherDay);
-      }
-      console.log(this.weatherDays);
 
+      }
         this.isLoading = false;
 
     }, errorMessage => {
@@ -107,14 +103,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     })
   }
 
-  // deleteWeatherItem(weatherItem: WeatherItemModel) {
-  //   this.dataService.deleteWeatherItem(weatherItem).subscribe(data => {
-  //     this.weatherItems = this.weatherItems.filter(c => c.id != weatherItem.id);
-  //     console.log(this.weatherItems);
-  //   })
-  // }
-
-
   removeWeatherItem(data: WeatherItemModel) {
     this.dataService.deleteWeatherItem(data).subscribe(res => {
       console.log(res);
@@ -123,10 +111,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onSubmit(setForm: NgForm) {
      let cityName = setForm.form.value.location;
-    console.log(cityName);
      this.getIdCity(cityName, 1);
      this.weatherDays = [];
-    setForm.reset();
+     setForm.reset();
   }
 
   onHandlerError() {

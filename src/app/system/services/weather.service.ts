@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 
@@ -50,7 +50,5 @@ export class WeatherService {
     }
     return throwError(errorMessage);
   }
-
 }
 
-// 0VK5Vt2kcY3nAuRLgbgnf742kNlaUcye
