@@ -2,8 +2,7 @@
   <div *ngFor="let weatherDay of weatherDays">
     <div class="block_d">
       <span>{{weatherDay.dayOfTheWeek}}</span>
-      <span>{{weatherDay.tempMax}}</span>
-      <span>{{weatherDay.tempMin}}</span>
+      <span>{{weatherDay.tempMax|number:'1.0-0'}}</span>
     </div>
   </div>
 </div>

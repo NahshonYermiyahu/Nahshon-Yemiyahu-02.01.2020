@@ -17,7 +17,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class HomeComponent implements OnInit, OnDestroy {
 
   weatherItem = new WeatherItemModel ('', 0, 0, '');
-  // weatherItem: WeatherItemModel;
   weatherDays: WeatherDay[] = [];
   error: string = null;
   // @ts-ignore
@@ -34,12 +33,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isLoading = true;
-     this.getIdCity('Tel Aviv',1);
+    this.getIdCity('Tel Aviv',Date.now());
     this.activatedRoute.params
       .subscribe(data => {
         this.getIdCity(data.cityName, data.id);
-
-        console.log(data.cityName)
         this.router.navigate(['home'], {queryParams: {}});
         this.isLoading = false;
       });
@@ -83,11 +80,9 @@ export class HomeComponent implements OnInit, OnDestroy {
           data.DailyForecasts[i].Temperature.Maximum.Value,
           data.DailyForecasts[i].Temperature.Minimum.Value
         );
-        this.weatherDays.push(weatherDay);
-
+        this.weatherDays[i] = weatherDay;
       }
         this.isLoading = false;
-
     }, errorMessage => {
         console.log(errorMessage);
         this.error = errorMessage;
@@ -111,7 +106,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onSubmit(setForm: NgForm) {
      let cityName = setForm.form.value.location;
-     this.getIdCity(cityName, 1);
+     this.getIdCity(cityName, Date.now());
      this.weatherDays = [];
      setForm.reset();
   }
