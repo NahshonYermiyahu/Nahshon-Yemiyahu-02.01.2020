@@ -1,0 +1,56 @@
+import { Injectable } from '@angular/core';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {catchError} from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class WeatherService {
+
+  constructor(private http: HttpClient) {
+  }
+
+  searchIdCity(cityName: string): Observable<any> {
+    return this.http
+      .get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=0VK5Vt2kcY3nAuRLgbgnf742kNlaUcye&q=${cityName}`)
+      .pipe(catchError(WeatherService.handleError));
+  }
+
+
+  searchWeatherData(idCity: string): Observable<any> {
+    return this.http
+      .get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${idCity}?apikey=%200VK5Vt2kcY3nAuRLgbgnf742kNlaUcye&metric=true`)
+      .pipe(catchError(WeatherService.handleError));
+  }
+
+  private static handleError(errorRes: HttpErrorResponse) {
+    console.log(errorRes.error);
+    let errorMessage = 'An unknown error occurred!';
+    if (!errorRes.error || !errorRes.error.error) {
+      return throwError(errorMessage);
+    }
+
+    switch (errorRes.error.error.message) {
+      case '400':
+        errorMessage = 'Request had bad syntax or the parameters supplied were invalid.';
+        break;
+      case '401 Unauthorized':
+        errorMessage = 'Unauthorized. API authorization failed.';
+        break;
+      case '403':
+        errorMessage = 'Unauthorized. You do not have permission to access this endpoint.';
+        break;
+      case '404':
+        errorMessage = 'Server has not found a route matching the given URI.';
+        break;
+      case '500':
+        errorMessage = 'Server encountered an unexpected condition which prevented it from fulfilling the request.';
+        break;
+    }
+    return throwError(errorMessage);
+  }
+
+}
+
+// 0VK5Vt2kcY3nAuRLgbgnf742kNlaUcye
