@@ -1,0 +1,25 @@
+@import "style";
+
+.main_f {
+  grid-row: 2/3;
+  display: flex;
+  max-height: 100%;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 50px;
+
+  .block{
+    display: flex;
+    height: 230px;
+    width: 200px;
+    flex-direction: column;
+    align-items: center;
+    background-color: bisque;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #1b276b;
+    justify-content: space-evenly;
+
+  }
+}

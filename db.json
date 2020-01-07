@@ -1,0 +1,67 @@
+{
+  "weatherItems": [
+    {
+      "cityName": "london",
+      "description": "Cloudy",
+      "tempMax": 8.9,
+      "tempMin": 5,
+      "id": 1
+    },
+    {
+      "cityName": "tel aviv",
+      "tempMin": 11.4,
+      "tempMax": 18.1,
+      "description": "Sunny",
+      "id": 2
+    },
+    {
+      "cityName": "oslo",
+      "tempMin": 3.4,
+      "tempMax": 5.3,
+      "description": "Mostly cloudy",
+      "id": 7
+    },
+    {
+      "cityName": "london",
+      "tempMin": 10.6,
+      "tempMax": 12.2,
+      "description": "Mostly cloudy w/ showers",
+      "id": 8
+    },
+    {
+      "cityName": "Paris",
+      "tempMin": 8.9,
+      "tempMax": 11.1,
+      "description": "Showers",
+      "id": 9
+    },
+    {
+      "cityName": "london",
+      "tempMin": 10.6,
+      "tempMax": 12.2,
+      "description": "Mostly cloudy w/ showers",
+      "id": 10
+    },
+    {
+      "cityName": "tel aviv",
+      "tempMin": 9.5,
+      "tempMax": 17.4,
+      "description": "Partly sunny",
+      "id": 11
+    },
+    {
+      "cityName": "Paris",
+      "tempMin": 8.9,
+      "tempMax": 11.1,
+      "description": "Showers",
+      "id": 12
+    },
+    {
+      "cityName": "london",
+      "tempMin": 10.6,
+      "tempMax": 12.2,
+      "description": "Mostly cloudy w/ showers",
+      "id": 14
+    }
+  ]
+}

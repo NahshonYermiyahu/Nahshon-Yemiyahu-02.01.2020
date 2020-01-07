@@ -1,0 +1,144 @@
+
+@font-face {
+  font-family: "Ibarra Real Nova";
+  src: url("../fonts/IbarraRealNova-Regular.eot");
+  src: url("../fonts/IbarraRealNova-Regular.eot") format("embedded-opentype"),
+    url("../fonts/IbarraRealNova-Regular.woff2") format("woff2"),
+    url("../fonts/IbarraRealNova-Regular.woff") format("woff"),
+    url("../fonts/IbarraRealNova-Regular.ttf") format("truetype"),
+    url("../fonts/IbarraRealNova-Regular.svg#IbarraRealNova-Regular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Regular.eot");
+  src: url("../fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans-Regular.woff2") format("woff2"),
+    url("../fonts/OpenSans-Regular.woff") format("woff"),
+    url("../fonts/OpenSans-Regular.ttf") format("truetype"),
+    url("../fonts/OpenSans-Regular.svg#OpenSans-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+//////////////////////////////////////////////////
+
+$font-open-sans: "Open Sans", sans-serif;
+$font-ibarra: "Ibarra Real Nova", sans-serif;
+$component-shadow-color: #08204d;
+$box-shadow-component: 3px 3px 10px 2px $component-shadow-color;
+$box-shadow-component-hover: 5px 5px 10px 3px $component-shadow-color;
+$box-shadow-frame-items: 3px 3px 20px 2px $component-shadow-color;
+$text-shadow: 2px 3px 8px #000;
+//$item-graddient-i: #101274;
+//$item-graddient-ii: #f5e611;
+
+////////////////////////////////////////////////////
+
+%font-style-shadow {
+  font-style: italic;
+  text-shadow: $text-shadow;
+}
+
+%style-text-ibarra_italic_shadow {
+  font-family: $font-ibarra;
+  @extend %font-style-shadow;
+}
+
+%style-text-open_italic_shadow {
+  font-family: $font-open-sans;
+  @extend %font-style-shadow;
+}
+
+%style-box-wrap {
+  border-radius: 5px;
+  box-shadow: $box-shadow-component;
+}
+
+%style-tab-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "tab-date" "tab-templine";
+  grid-template-rows: 80px 150px;
+  @extend %style-box-wrap;
+  background-color: #fff;
+}
+%style-value {
+  display: flex;
+  margin: auto;
+  height: 70px;
+  width: 120px;
+  border-radius: 5px;
+  //box-shadow: $box-shadow-frame-items;
+  font-size: 40px;
+}
+
+//////////////////////////////////////////
+
+@keyframes now_weather_size {
+  0% {
+    font-size: 100px;
+  }
+  50% {
+    font-size: 105px;
+  }
+  100% {
+    font-size: 100px;
+  }
+}
+
+//////////////////////////////////////
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.container {
+  font-family: $font-open-sans;
+  font-weight: 600;
+  font-size: 18px;
+  display: grid;
+  grid-template-rows: 120px 830px;
+  max-height: 955px;
+  max-width: 1920px;
+
+  background: linear-gradient(45deg, #99b2db, #5c5696);
+  &.style_body_active {
+    background: linear-gradient(45deg, #42e9ff, #ffca57);
+
+    .header {
+      background-color: #3cb1c5;
+    }
+  }
+  &.temp_body_active {
+    .unit_temperature_c {
+      display: none;
+    }
+
+    .unit_temperature_f {
+      display: inline;
+    }
+  }
+}
+.unit {
+  margin: auto;
+  font-family: $font-ibarra;
+  font-style: italic;
+  align-self: center;
+}
+
+.unit_temperature_c {
+  display: inline;
+}
+
+.unit_temperature_f {
+  display: none;
+}
