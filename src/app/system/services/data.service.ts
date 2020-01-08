@@ -11,15 +11,6 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  // addWeatherItem(weather: WeatherItemModel): Observable<any> {
-  //   return this.http.post('https://localhost:3000/weatherItems', weather,
-  //     {
-  //       headers: new HttpHeaders({
-  //         'Content-Type' : 'application/json'
-  //       })
-  //     })
-  // }
-
   addWeatherItem(weather: WeatherItemModel): Observable<any> {
     return this.http.post(`https://weatherrm-92147.firebaseio.com/weatherItems/.json`, weather,
       {
@@ -28,15 +19,6 @@ export class DataService {
         })
       })
   }
-
-  // getWeatherItems(): Observable<any> {
-  //   return this.http.get('https://localhost:3000/weatherItems',
-  //     {
-  //       headers: new HttpHeaders({
-  //         'Content-Type' : 'application/json'
-  //       })
-  //     })
-  // }
 
   getWeatherItems(): Observable<any> {
     return this.http.get('https://weatherrm-92147.firebaseio.com/weatherItems/.json',
@@ -66,12 +48,4 @@ export class DataService {
       })
   }
 
-  // deleteWeatherItem(weather: WeatherItemModel): Observable<any> {
-  //   return this.http.delete(`http://localhost:3000/weatherItems/${weather.id}`,
-  //     {
-  //       headers: new HttpHeaders({
-  //         'Content-Type' : 'application/json'
-  //       })
-  //     })
-  // }
 }

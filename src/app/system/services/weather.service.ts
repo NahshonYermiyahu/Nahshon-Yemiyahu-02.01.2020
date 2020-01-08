@@ -52,5 +52,3 @@ export class WeatherService {
   }
 }
 
-// guZ9PWVRxsqJX2UvjZPDb7r0kqCx0Syr
-//254946
