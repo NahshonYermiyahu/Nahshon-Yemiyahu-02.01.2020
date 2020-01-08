@@ -99,7 +99,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   removeWeatherItem(data: string) {
-    console.log(data)
     this.dataService.deleteWeatherItem(data).subscribe(res => {
       console.log(res);
     })
