@@ -12,6 +12,10 @@ import { AlertComponent } from './shared/alert/alert.component';
 import {PlaceholderDirective} from './shared/placeholder/placeholder.directive';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { WeatherDayComponent } from './system/components/weather-day/weather-day.component';
+import {environment} from '../environments/environment';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+
 
 
 @NgModule({
@@ -30,6 +34,8 @@ import { WeatherDayComponent } from './system/components/weather-day/weather-day
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     HttpClientModule
   ],
   entryComponents: [
