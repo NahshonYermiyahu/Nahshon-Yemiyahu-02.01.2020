@@ -3,7 +3,7 @@
   <div *ngFor="let weatherItem of weatherItems">
       <div class="block" (click)="details(weatherItem)">
         <span>{{weatherItem.cityName}}</span>
-        <span>{{weatherItem.id}}</span>
+        <span style="font-size: 12px">{{weatherItem.id}}</span>
         <span>{{weatherItem.description}}</span>
         <span>{{weatherItem.tempMax|number:'1.0-0'}}</span>
       </div>

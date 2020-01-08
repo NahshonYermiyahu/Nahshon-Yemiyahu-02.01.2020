@@ -4,6 +4,6 @@ export class WeatherItemModel {
     public tempMin: number,
     public tempMax: number,
     public description: string,
-    public id?: number
+    public id?: string
   ){}
 }

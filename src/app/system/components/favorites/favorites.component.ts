@@ -19,10 +19,12 @@ export class FavoritesComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getWeatherItems().subscribe(data => {
+
       this.weatherItems = data;
+      console.log(this.weatherItems);
 
       for(let i = 0;i < this.weatherItems.length; i++) {
-        this.weatherService.searchIdCity(this.weatherItems[i].cityName)
+        this.weatherService.searchIdCity(this.weatherItems[i].cityName, this.weatherItems[i].id)
           .subscribe(data => {
             this.weatherService.searchWeatherData(data[0].Key)
               .subscribe(data => {
@@ -36,6 +38,7 @@ export class FavoritesComponent implements OnInit {
               })
           })
       }
+      console.log(this.weatherItems);
     });
 
   }

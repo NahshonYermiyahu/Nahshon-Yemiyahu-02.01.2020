@@ -11,7 +11,7 @@ export class WeatherService {
   constructor(private http: HttpClient) {
   }
 
-  searchIdCity(cityName: string): Observable<any> {
+  searchIdCity(cityName: string, id: string): Observable<any> {
     return this.http
       .get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=guZ9PWVRxsqJX2UvjZPDb7r0kqCx0Syr&q=${cityName}`)
       .pipe(catchError(WeatherService.handleError));

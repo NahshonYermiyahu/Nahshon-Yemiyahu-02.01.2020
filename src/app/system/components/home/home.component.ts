@@ -16,7 +16,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  weatherItem = new WeatherItemModel ('', 0, 0, '');
+  weatherItem = new WeatherItemModel ('', 0, 0, '','');
   weatherDays: WeatherDay[] = [];
   error: string = null;
   // @ts-ignore
@@ -33,21 +33,21 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isLoading = true;
-    this.getIdCity('Tel Aviv',Date.now());
+    this.getIdCity('Tel Aviv', '');
     this.activatedRoute.params
       .subscribe(data => {
-        this.getIdCity(data.cityName, data.id);
+        this.getIdCity(data.cityName,data.id);
         this.router.navigate(['home'], {queryParams: {}});
         this.isLoading = false;
       });
   }
 
 
-  getIdCity(cityName: string, id: number) {
+  getIdCity(cityName: string,id:string) {
     this.isLoading = true;
-    this.weatherService.searchIdCity(cityName)
+    this.weatherService.searchIdCity(cityName,id)
       .subscribe(data => {
-      this.getWeather(cityName, data[0].Key, id);
+      this.getWeather(cityName, data[0].Key,id);
       this.isLoading = false;
     }, errorMessage => {
       console.log(errorMessage);
@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     return days[date.getDay()];
   }
 
-  getWeather(cityName: string, idCity: string, id: number) {
+  getWeather(cityName: string, idCity: string, id:string) {
     this.isLoading = true;
     this.weatherService.searchWeatherData(idCity)
       .subscribe(data => {
@@ -98,7 +98,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     })
   }
 
-  removeWeatherItem(data: WeatherItemModel) {
+  removeWeatherItem(data: string) {
+    console.log(data)
     this.dataService.deleteWeatherItem(data).subscribe(res => {
       console.log(res);
     })
@@ -106,7 +107,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onSubmit(setForm: NgForm) {
      let cityName = setForm.form.value.location;
-     this.getIdCity(cityName, Date.now());
+     this.getIdCity(cityName, '');
      this.weatherDays = [];
      setForm.reset();
   }
