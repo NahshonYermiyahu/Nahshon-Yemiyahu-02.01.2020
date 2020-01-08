@@ -1,13 +1,6 @@
 {
   "weatherItems": [
     {
-      "cityName": "Toronto",
-      "tempMin": -3.6,
-      "tempMax": 4.3,
-      "description": "Flurries",
-      "id": 1578431079117
-    },
-    {
       "cityName": "oslo",
       "tempMin": 3.9,
       "tempMax": 6.3,
@@ -22,25 +15,11 @@
       "id": 1578436198728
     },
     {
-      "cityName": "Paris",
-      "tempMin": 8.3,
-      "tempMax": 8.9,
-      "description": "Showers",
-      "id": 1578436211647
-    },
-    {
       "cityName": "london",
       "tempMin": 10.6,
       "tempMax": 12.8,
       "description": "Mostly cloudy",
       "id": 1578436230536
-    },
-    {
-      "cityName": "Pekin",
-      "tempMin": -6.6,
-      "tempMax": 5.4,
-      "description": "Partly sunny w/ flurries",
-      "id": 1578444030098
     }
   ]
 }
