@@ -34,6 +34,13 @@
       "tempMax": 12.8,
       "description": "Mostly cloudy",
       "id": 1578436230536
+    },
+    {
+      "cityName": "Pekin",
+      "tempMin": -6.6,
+      "tempMax": 5.4,
+      "description": "Partly sunny w/ flurries",
+      "id": 1578444030098
     }
   ]
 }
