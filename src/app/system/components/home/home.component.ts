@@ -36,7 +36,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.getIdCity('Tel Aviv', '');
     this.activatedRoute.params
       .subscribe(data => {
-        this.getIdCity(data.cityName,data.id);
+        if(data.cityName){
+          this.getIdCity(data.cityName,data.id);
+        }
+
         this.router.navigate(['home'], {queryParams: {}});
         this.isLoading = false;
       });

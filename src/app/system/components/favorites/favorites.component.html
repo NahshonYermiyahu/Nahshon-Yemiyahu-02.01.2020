@@ -1,11 +1,16 @@
+<div *ngIf="isLoading" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
 
-<div class="main_f">
-  <div *ngFor="let weatherItem of weatherItems">
+<div class="main_f" *ngIf="!isLoading">
+
+    <div  *ngFor="let weatherItem of weatherItems">
       <div class="block" (click)="details(weatherItem)">
         <span>{{weatherItem.cityName}}</span>
         <span style="font-size: 12px">{{weatherItem.id}}</span>
         <span>{{weatherItem.description}}</span>
         <span>{{weatherItem.tempMax|number:'1.0-0'}}</span>
       </div>
-  </div>
+    </div>
+
 </div>

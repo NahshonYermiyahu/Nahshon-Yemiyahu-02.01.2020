@@ -12,12 +12,14 @@ import {WeatherService} from '../../services/weather.service';
 export class FavoritesComponent implements OnInit {
 
   weatherItems: WeatherItemModel[];
+  isLoading = false;
 
   constructor(private dataService: DataService,
               private weatherService: WeatherService,
               private router: Router) { }
 
   ngOnInit() {
+    this.isLoading = true;
     this.dataService.getWeatherItems().subscribe(data => {
       this.weatherItems = data;
       for(let i = 0;i < this.weatherItems.length; i++) {
@@ -37,6 +39,7 @@ export class FavoritesComponent implements OnInit {
                 );
               })
           })}
+      this.isLoading = false;
     });
   }
 
