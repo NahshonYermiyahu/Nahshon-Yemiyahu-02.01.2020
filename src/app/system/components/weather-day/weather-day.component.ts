@@ -6,13 +6,8 @@ import {WeatherDay} from '../../../shared/models/weatherDay';
   templateUrl: './weather-day.component.html',
   styleUrls: ['../../../../assets/scss/day.scss']
 })
-export class WeatherDayComponent implements OnInit {
+export class WeatherDayComponent  {
 
-  @Input() weatherDays: WeatherDay[]
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input() weatherDays: WeatherDay[];
 
 }

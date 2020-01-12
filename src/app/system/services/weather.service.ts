@@ -13,14 +13,14 @@ export class WeatherService {
 
   searchIdCity(cityName: string, id: string): Observable<any> {
     return this.http
-      .get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=guZ9PWVRxsqJX2UvjZPDb7r0kqCx0Syr&q=${cityName}`)
+      .get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=0VK5Vt2kcY3nAuRLgbgnf742kNlaUcye&q=${cityName}`)
       .pipe(catchError(WeatherService.handleError));
   }
 
 
   searchWeatherData(idCity: string): Observable<any> {
     return this.http
-      .get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${idCity}?apikey=guZ9PWVRxsqJX2UvjZPDb7r0kqCx0Syr&metric=true`)
+      .get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${idCity}?apikey=0VK5Vt2kcY3nAuRLgbgnf742kNlaUcye&metric=true`)
       .pipe(catchError(WeatherService.handleError));
   }
 

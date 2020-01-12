@@ -80,8 +80,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       for(let i = 0; i < data.DailyForecasts.length; i++) {
         let weatherDay = new WeatherDay(
           HomeComponent.getWeekDay(new Date(Date.parse(data.DailyForecasts[i].Date))),
-          data.DailyForecasts[i].Temperature.Maximum.Value,
-          data.DailyForecasts[i].Temperature.Minimum.Value
+          data.DailyForecasts[i].Temperature.Maximum.Value
         );
         this.weatherDays[i] = weatherDay;
       }
@@ -96,15 +95,31 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   addWeatherItem(data: WeatherItemModel) {
+    this.isLoading = true;
     this.dataService.addWeatherItem(data).subscribe(res => {
       console.log(res);
-    })
+      this.isLoading = false;
+    }, errorMessage => {
+      console.log(errorMessage);
+      this.error = errorMessage;
+      this.showErrorAlert(errorMessage);
+      this.isLoading = false;
+    });
   }
 
   removeWeatherItem(data: string) {
+    this.isLoading = true;
     this.dataService.deleteWeatherItem(data).subscribe(res => {
-      console.log(res);
-    })
+      if(res) {
+        console.log(res);
+      }
+      this.isLoading = false;
+    },errorMessage => {
+      console.log(errorMessage);
+      this.error = errorMessage;
+      this.showErrorAlert(errorMessage);
+      this.isLoading = false;
+    });
   }
 
   onSubmit(setForm: NgForm) {
